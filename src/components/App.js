@@ -8,9 +8,10 @@ class App extends Component{
     }
 
     render(){
+      let message = "By Nuwan";
         return(
             <div>
-              <h1>Hello From React</h1>
+              <h1>Hello From React {message}</h1>
             </div>
         );
     }
