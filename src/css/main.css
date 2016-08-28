@@ -1,0 +1,70 @@
+.page-head{
+  background-color: #985f0d;
+  color:#fff;
+  padding: 4px;
+  text-align: center;
+}
+
+.kanbanColumn_1{
+  background-color: #e7e7e7;
+  border-right:1px dashed #666;
+}
+
+.kanbanColumn_1__borderLeft{
+  border-left:5px solid #d31145;
+}
+
+.kanbanColumn_2__borderLeft{
+  border-left:5px solid #0074D9;
+}
+
+.kanbanColumn_3__borderLeft{
+  border-left:5px solid #4cae4c;
+}
+
+.fullHeightDiv{
+  padding-bottom: 100%;
+  margin-bottom: -100%;
+}
+
+.dottedSeperator{
+  border-bottom:1px dotted #666;
+  padding: 5px 0;
+  margin-bottom: 5px;
+}
+
+/*---------- Vendor Override Styles ---------------*/
+
+.panel{
+  border-radius: 0;
+}
+
+/*-------------- mixin -----------------------------*/
+
+.fontSize_12{
+  font-size: 12px;
+}
+
+.fontSize_15{
+  font-size: 15px;
+}
+
+.fontSize_16{
+  font-size: 16px;
+}
+
+.fontSize_18{
+  font-size: 18px;
+}
+
+.borderDashed{
+  border:1px dashed #ccc;
+}
+
+.addTaskDiv{
+  padding-top: 10px;
+}
+
+.inputAsh{
+  background-color: #f2f2f2;
+}
