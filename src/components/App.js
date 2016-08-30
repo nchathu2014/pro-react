@@ -33,6 +33,10 @@ class App extends Component {
     console.log(`NAME : ${event.target.name.value} EMAIL : ${event.target.email.value}`);
   }
 
+  handleOnFocus(){
+    this.refs.inputRef.focus();
+  }
+
   render() {
 
     let divStyle = {
@@ -42,6 +46,15 @@ class App extends Component {
       padding: 10,
       fontSize: 50
     };
+
+    let studentArray = ['Nuwan','Janaka','Isura','Lahiru','Chamira','Dhanushka'];
+    let students = studentArray.map((student,index)=>{
+      return(
+
+          <li key={index}>{student}</li>
+
+      );
+    });
 
     return (
       <div style={divStyle}>
@@ -65,15 +78,24 @@ class App extends Component {
 
         <form onSubmit={this.handleSubmit}>
           <div className="formGroup">
-            Name: <input name="name" type="text" />
+            Name: <input name="name" type="text" defaultValue="This is a sample value"/>
           </div>
           <div className="formGroup">
-            E-mail: <input name="email" type="mail" />
+            E-mail: <input name="email" type="mail" defaultValue="nuwan@gmail.com"/>
           </div>
           <button type="submit">Submit</button>
         </form>
 
 
+        <hr/>
+
+        Ref and Key
+
+        <div>
+          {students}
+          <input type="text" ref="inputRef"/>
+          <button onClick={this.handleOnFocus.bind(this)}>Focus to TextBox</button>
+        </div>
 
 
       </div>
