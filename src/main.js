@@ -9,7 +9,7 @@ import App from './components/App';
 
 
 render(
-    <App/>,
+    <App title={123}/>,
     document.getElementById('app')
 );
 
