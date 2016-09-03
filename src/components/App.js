@@ -4,7 +4,7 @@ class App extends Component{
 
     constructor(props){
         super(props);
-        console.log("App initialized...");
+        console.log("App constructor");
     }
 
     render(){
