@@ -4,12 +4,12 @@
 
 import React from 'react';
 import ReactDOM,{render} from 'react-dom';
-import App from './components/App';
+import ContactApp from './components/ContactApp';
 
 
 
 render(
-    <App/>,
+    <ContactApp/>,
     document.getElementById('app')
 );
 
