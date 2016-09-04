@@ -1,19 +1,29 @@
 import  React,{Component} from 'react';
+import  Content from './Content';
 
-class App extends Component{
+class App extends Component {
 
-    constructor(props){
-        super(props);
-        console.log("App initialized...");
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: 0
+    };
+    this.setNewNumber = this.setNewNumber.bind(this);
+  }
 
-    render(){
-        return(
-            <div>
-              <h1>Hello From React</h1>
-            </div>
-        );
-    }
+  setNewNumber() {
+    this.setState({data: this.state.data + 1})
+  }
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.setNewNumber}>INCREMENT</button>
+        <Content myNumber={this.state.data}></Content>
+      </div>
+    );
+
+  }
 }
 
 export default App;

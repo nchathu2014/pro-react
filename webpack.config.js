@@ -20,22 +20,22 @@ module.exports ={
             "window.jQuery":"jquery"
         }),
 
-        new TimestampWebpackPlugin({
+       /* new TimestampWebpackPlugin({
             path:__dirname,
             filename:"timestamp.json"
-        }),
+        }),*/
 
         new webpack.BannerPlugin("####################################\n Author:T.D.Nuwan Chathuranga\n####################################")
     ],
     module:{
 
-        preLoaders:[
+        /*preLoaders:[
             {
                 test:/\.js$/,
                 exclude:/node_modules/,
                 loader:"jshint-loader"
             }
-        ],
+        ],*/
         loaders:[
             {test:/\.js$/,exclude:/node_modules/,loader:"babel-loader"},
             {test:/\.css$/,exclude:/node_modules/,loader:"style-loader!css-loader"},
