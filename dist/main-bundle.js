@@ -59,15 +59,15 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _App = __webpack_require__(170);
+	var _ContactApp = __webpack_require__(170);
 
-	var _App2 = _interopRequireDefault(_App);
+	var _ContactApp2 = _interopRequireDefault(_ContactApp);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	(0, _reactDom.render)(_react2.default.createElement(_App2.default, null), document.getElementById('app')); /**
-	                                                                                                            * Created by UCHATNU on 7/4/2016.
-	                                                                                                            */
+	(0, _reactDom.render)(_react2.default.createElement(_ContactApp2.default, null), document.getElementById('app')); /**
+	                                                                                                                   * Created by UCHATNU on 7/4/2016.
+	                                                                                                                   */
 
 /***/ },
 /* 1 */
@@ -21000,9 +21000,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Content = __webpack_require__(171);
+	var _ContactList = __webpack_require__(171);
 
-	var _Content2 = _interopRequireDefault(_Content);
+	var _ContactList2 = _interopRequireDefault(_ContactList);
+
+	var _SearchBar = __webpack_require__(172);
+
+	var _SearchBar2 = _interopRequireDefault(_SearchBar);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21012,25 +21016,38 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var App = function (_Component) {
-	  _inherits(App, _Component);
+	var ContactApp = function (_Component) {
+	  _inherits(ContactApp, _Component);
 
-	  function App(props) {
-	    _classCallCheck(this, App);
+	  function ContactApp(props) {
+	    _classCallCheck(this, ContactApp);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ContactApp).call(this, props));
 
-	    _this.state = {
-	      data: 0
-	    };
-	    _this.setNewNumber = _this.setNewNumber.bind(_this);
+	    _this._initComponentState();
+	    _this.onChangeCallback = _this.onChangeCallback.bind(_this);
 	    return _this;
 	  }
 
-	  _createClass(App, [{
-	    key: 'setNewNumber',
-	    value: function setNewNumber() {
-	      this.setState({ data: this.state.data + 1 });
+	  /**
+	   *
+	   * @private
+	   */
+
+
+	  _createClass(ContactApp, [{
+	    key: '_initComponentState',
+	    value: function _initComponentState() {
+	      this.state = {
+	        inputText: ""
+	      };
+	    }
+	  }, {
+	    key: 'onChangeCallback',
+	    value: function onChangeCallback(value) {
+	      this.setState({
+	        inputText: value
+	      });
 	    }
 	  }, {
 	    key: 'render',
@@ -21038,23 +21055,99 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
-	          'button',
-	          { onClick: this.setNewNumber },
-	          'INCREMENT'
-	        ),
-	        _react2.default.createElement(_Content2.default, { myNumber: this.state.data })
+	        _react2.default.createElement(_SearchBar2.default, { onChangeCallback: this.onChangeCallback }),
+	        _react2.default.createElement(_ContactList2.default, {
+	          contacts: ContactApp.contacts,
+	          inputText: this.state.inputText
+	        })
 	      );
 	    }
 	  }]);
 
-	  return App;
+	  return ContactApp;
 	}(_react.Component);
 
-	exports.default = App;
+	ContactApp.contacts = [{ id: 1, name: "Cassio Zen", email: "cassiozen@gmail.com" }, { id: 2, name: "Dan Abramov", email: "gaearon@somewhere.com" }, { id: 3, name: "Pete Hunt", email: "floydophone@somewhere.com" }, { id: 4, name: "Paul O’Shannessy", email: "zpao@somewhere.com" }, { id: 5, name: "Ryan Florence", email: "rpflorence@somewhere.com" }, { id: 6, name: "Nuwan Chathuranga", email: "nuwan@here.com" }];
+
+	exports.default = ContactApp;
 
 /***/ },
 /* 171 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ContactList = function (_Component) {
+	  _inherits(ContactList, _Component);
+
+	  function ContactList(props) {
+	    _classCallCheck(this, ContactList);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ContactList).call(this, props));
+	  }
+
+	  _createClass(ContactList, [{
+	    key: 'render',
+	    value: function render() {
+	      var inputText = this.props.inputText;
+
+	      var filteredList = this.props.contacts.filter(function (contact) {
+	        return contact.name.toLowerCase().indexOf(inputText.toLowerCase()) !== -1;
+	      });
+
+	      var userList = filteredList.map(function (contact, index) {
+	        return _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'li',
+	            { key: index },
+	            contact.name,
+	            '- ',
+	            contact.email,
+	            '-',
+	            contact.length
+	          )
+	        );
+	      });
+
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'ul',
+	          null,
+	          userList
+	        )
+	      );
+	    }
+	  }]);
+
+	  return ContactList;
+	}(_react.Component);
+
+	exports.default = ContactList;
+
+/***/ },
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21077,61 +21170,22 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Content = function (_Component) {
-	  _inherits(Content, _Component);
+	var SearchBar = function (_Component) {
+	  _inherits(SearchBar, _Component);
 
-	  function Content(props) {
-	    _classCallCheck(this, Content);
+	  function SearchBar(props) {
+	    _classCallCheck(this, SearchBar);
 
-	    console.log("constructor fires");
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SearchBar).call(this, props));
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Content).call(this, props));
-
-	    _this.state = {
-	      greet: "init"
-	    };
+	    _this._handleOnChange = _this._handleOnChange.bind(_this);
 	    return _this;
 	  }
 
-	  _createClass(Content, [{
-	    key: "componentWillMount",
-	    value: function componentWillMount() {
-	      console.log("componentWillMount fires");
-	    }
-	  }, {
-	    key: "componentDidMount",
-	    value: function componentDidMount() {
-	      console.log("componentDidMount fires");
-	    }
-	  }, {
-	    key: "componentWillReceiveProps",
-	    value: function componentWillReceiveProps(newProps) {
-	      console.log('componentWillReceiveProps : ' + newProps.myNumber);
-	      this.setState({
-	        greet: "Hiiiiiiiiiiiiiii"
-	      });
-	    }
-	  }, {
-	    key: "shouldComponentUpdate",
-	    value: function shouldComponentUpdate(newProps, newState) {
-	      var returnValue = true;
-	      if (newProps.myNumber == 6) {
-	        returnValue = false;
-	      } else {
-	        returnValue = true;
-	      }
-	      console.log(newState);
-	      return returnValue;
-	    }
-	  }, {
-	    key: "componentWillUpdate",
-	    value: function componentWillUpdate(nextProps, nextState) {
-	      console.log("componentWillUpdate " + nextProps.myNumber + '--' + nextState.greet);
-	    }
-	  }, {
-	    key: "componentDidUpdate",
-	    value: function componentDidUpdate(prevProps, prevStatus) {
-	      console.log("componentDidUpdate " + prevProps.myNumber + '--' + prevStatus.greet);
+	  _createClass(SearchBar, [{
+	    key: "_handleOnChange",
+	    value: function _handleOnChange(event) {
+	      this.props.onChangeCallback(event.target.value);
 	    }
 	  }, {
 	    key: "render",
@@ -21139,17 +21193,15 @@
 	      return _react2.default.createElement(
 	        "div",
 	        null,
-	        this.state.greet,
-	        _react2.default.createElement("br", null),
-	        this.props.myNumber
+	        _react2.default.createElement("input", { type: "text", onChange: this._handleOnChange })
 	      );
 	    }
 	  }]);
 
-	  return Content;
+	  return SearchBar;
 	}(_react.Component);
 
-	exports.default = Content;
+	exports.default = SearchBar;
 
 /***/ }
 /******/ ]);
